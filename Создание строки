@@ -1,0 +1,22 @@
+alif = list(map(int,input().split()))
+alifbo = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+res = ''
+ser = ''
+for i in range (0, 26):
+    res+=alifbo[i]*alif[i]
+a = True
+ser += res[0]
+j = 1
+while a:
+    for i in range (0,26):
+        for i in range (0, len(res)):
+            if i >= len(res):
+                i = 0
+            if res[i] != ser[j-1]:
+                ser+=res[i]
+                res = res[:i]+res[i+1:]
+                j+=1
+            if len(res) == 0:
+                a = False
+ser = ser[1:]
+print(ser)
